@@ -1,0 +1,46 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+// Rotas que requerem autenticação
+const protectedRoutes = ['/report', '/map', '/profile', '/history'];
+const adminRoutes = ['/dashboard', '/admin'];
+const authRoutes = ['/login', '/register'];
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Simular verificação de autenticação via cookie
+  const authCookie = request.cookies.get('brasilia-segura-auth');
+  const isAuthenticated = !!authCookie;
+  
+  // Redirecionar para login se tentar acessar rota protegida sem autenticação
+  if (protectedRoutes.some(route => pathname.startsWith(route)) && !isAuthenticated) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+  
+  // Redirecionar para login se tentar acessar rota admin sem autenticação
+  if (adminRoutes.some(route => pathname.startsWith(route)) && !isAuthenticated) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+  
+  // Redirecionar para home se já estiver autenticado e tentar acessar login/register
+  if (authRoutes.some(route => pathname.startsWith(route)) && isAuthenticated) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+  
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public files
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|icons|manifest.json|sw.js|workbox-).*)',
+  ],
+};

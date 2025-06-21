@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brasília Segura 🛡️
 
-## Getting Started
+**Campus Party 2025 - Desafio Cidade + Segura**
 
-First, run the development server:
+Uma Progressive Web App (PWA) totalmente visual e mockada para transformar Brasília em uma cidade mais segura através da participação cidadã e inteligência artificial.
+
+## 🎯 Sobre o Projeto
+
+Brasília Segura é uma solução inovadora que permite aos cidadãos reportarem problemas urbanos como iluminação quebrada, acúmulo de lixo, buracos nas vias e outras desordens que afetam a segurança pública. Baseado na Teoria das Janelas Quebradas e metodologia CPTED, o app usa IA para análise preditiva e prevenção de problemas.
+
+### ✨ Funcionalidades Principais
+
+- 📱 **PWA Mobile-First**: Funciona offline e pode ser instalado como app nativo
+- 📸 **Reporte em 5 Passos**: Sistema wizard intuitivo com foto e geolocalização
+- 🗺️ **Mapa Visual**: Visualização mockada com clustering e heatmap (sem biblioteca de mapas)
+- 🤖 **IA Preditiva**: Simulação visual de análise de padrões e previsão de riscos
+- 📊 **Dashboard Admin**: Gestão completa com gráficos e métricas
+- 🏆 **Gamificação**: Sistema de pontos e rankings para engajamento cidadão
+
+## 🚀 Tecnologias
+
+- **Next.js 15** - Framework React com App Router
+- **TypeScript** - Tipagem estática para maior segurança
+- **Tailwind CSS** - Estilização moderna e responsiva
+- **shadcn/ui** - Componentes UI acessíveis e bonitos
+- **PWA** - next-pwa com Serwist para funcionalidade offline
+- **Zustand** - Gerenciamento de estado simples e eficiente
+
+## 🛠️ Instalação
 
 ```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/brasilia-segura.git
+
+# Entre no diretório
+cd brasilia-segura
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Inicia servidor de desenvolvimento
+- `npm run build` - Cria build de produção
+- `npm run start` - Inicia servidor de produção
+- `npm run lint` - Executa linter
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Deploy no GitHub Pages
 
-## Learn More
+O app está configurado para deploy automático:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Build para produção
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# O GitHub Actions fará deploy automático ao fazer push para main
+git push origin main
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Acesse em: `https://seu-usuario.github.io/brasilia-segura`
 
-## Deploy on Vercel
+## 📱 Como Usar
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Para Cidadãos:
+1. Acesse o app pelo navegador mobile
+2. Faça login com qualquer email/senha
+3. Clique no botão "Reportar Problema"
+4. Siga o wizard de 5 passos
+5. Receba protocolo para acompanhamento
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Para Administradores:
+1. Login com email terminando em `@admin.com`
+2. Acesse dashboard com métricas em tempo real
+3. Visualize predições de IA e hotspots
+4. Gerencie reportes e tome ações
+
+## 🏛️ Dados Realistas de Brasília
+
+- **35 Regiões Administrativas** com coordenadas GPS reais
+- **500+ reportes simulados** com distribuição ponderada
+- **Maior concentração** em Ceilândia e Samambaia (baseado em dados reais)
+- **8 categorias** de problemas urbanos
+
+## 🤖 Inteligência Artificial Visual
+
+- **Predições de risco** para próximos 30 dias
+- **Análise de tendências** por categoria
+- **Mapa de hotspots** com correlações
+- **87.3% acurácia simulada**
+- **156 incidentes prevenidos** (simulação)
+
+## 🏗️ Estrutura do Projeto
+
+```
+brasilia-segura/
+├── app/
+│   ├── (auth)/         # Login/Registro
+│   ├── (app)/          # App do cidadão
+│   ├── (admin)/        # Painel administrativo
+│   └── layout.tsx      # Layout PWA
+├── components/
+│   ├── ui/            # shadcn/ui
+│   └── features/      # Componentes específicos
+├── lib/
+│   ├── mock/          # Dados mockados
+│   ├── contexts/      # Contextos React
+│   └── utils/         # Utilitários
+└── public/
+    ├── icons/         # Ícones PWA
+    └── manifest.json  # Manifesto
+```
+
+## 👥 Créditos
+
+Desenvolvido para o **Hackathon Campus Party 2025** - Desafio Cidade + Segura
+
+## 📄 Notas
+
+Este é um projeto demonstrativo com dados totalmente mockados para fins de apresentação no hackathon.

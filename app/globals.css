@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Cores inspiradas em Brasília - Verde e Amarelo */
+    --background: 0 0% 100%;
+    --foreground: 142 40% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 142 40% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 40% 15%;
+    
+    --primary: 142 71% 45%; /* Verde Brasília */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 48 96% 53%; /* Amarelo Brasília */
+    --secondary-foreground: 142 40% 15%;
+    
+    --muted: 142 10% 96%;
+    --muted-foreground: 142 10% 46%;
+    
+    --accent: 48 96% 53%;
+    --accent-foreground: 142 40% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 142 10% 90%;
+    --input: 142 10% 90%;
+    --ring: 142 71% 45%;
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 142 40% 10%;
+    --foreground: 0 0% 98%;
+    
+    --card: 142 30% 15%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 142 30% 15%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 48 96% 53%;
+    --secondary-foreground: 142 40% 15%;
+    
+    --muted: 142 20% 20%;
+    --muted-foreground: 142 10% 60%;
+    
+    --accent: 48 96% 53%;
+    --accent-foreground: 142 40% 15%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 142 20% 25%;
+    --input: 142 20% 25%;
+    --ring: 142 71% 45%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
 }
