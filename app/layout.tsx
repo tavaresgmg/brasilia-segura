@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Brasília Segura",
   description: "Plataforma colaborativa para reportar e resolver problemas urbanos em Brasília",
-  manifest: "/manifest.json",
+  manifest: process.env.NODE_ENV === "production" ? "/brasilia-segura/manifest.json" : "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -46,8 +46,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="icon" href={process.env.NODE_ENV === "production" ? "/brasilia-segura/favicon.ico" : "/favicon.ico"} sizes="any" />
+        <link rel="apple-touch-icon" href={process.env.NODE_ENV === "production" ? "/brasilia-segura/icons/icon-192x192.png" : "/icons/icon-192x192.png"} />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
